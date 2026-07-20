@@ -142,7 +142,7 @@ export function ProgramScreen({ program }: { program: 1 | 2 | 3 }) {
       {locked && (
         <div className="btn-row sticky-actions">
           <button className="secondary" onClick={() => window.print()}>
-            🖨 Print program sheet
+            Print program sheet
           </button>
           {allFinished && program < 3 && (
             <button

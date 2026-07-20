@@ -1,40 +1,42 @@
 import React from 'react';
 import { MeetProvider, useMeet } from './store/meetStore';
 import { GuideProvider } from './guide';
+import { HomeScreen } from './ui/HomeScreen';
 import { SetupScreen } from './ui/SetupScreen';
 import { EntriesScreen } from './ui/EntriesScreen';
 import { DivisionsScreen } from './ui/DivisionsScreen';
 import { ProgramScreen } from './ui/ProgramScreen';
 import { ResultsScreen } from './ui/ResultsScreen';
+import { ExportScreen } from './ui/ExportScreen';
 import type { Phase } from './domain/types';
 
 const STEPS: { phase: Phase; label: string }[] = [
-  { phase: 'setup', label: '1 · Setup' },
-  { phase: 'entries', label: '2 · Entries' },
-  { phase: 'divisions', label: '3 · Divisions' },
-  { phase: 'program1', label: '4 · Program 1' },
-  { phase: 'program2', label: '5 · Program 2' },
-  { phase: 'program3', label: '6 · Program 3' },
-  { phase: 'results', label: '7 · Results' },
+  { phase: 'setup', label: '1. Meet setup' },
+  { phase: 'entries', label: '2. Entries' },
+  { phase: 'divisions', label: '3. Divisions' },
+  { phase: 'program1', label: '4. Program 1' },
+  { phase: 'program2', label: '5. Program 2' },
+  { phase: 'program3', label: '6. Program 3' },
+  { phase: 'results', label: '7. Results' },
+  { phase: 'export', label: '8. Export' },
 ];
 
 function Shell() {
-  const { state, dispatch } = useMeet();
+  const { state, dispatch, lastSaved } = useMeet();
   const phase = state.phase;
+  const status = [
+    state.info.meetId || null,
+    `${state.entries.length} dogs`,
+    lastSaved ? `saved ${lastSaved}` : null,
+  ]
+    .filter(Boolean)
+    .join(' · ');
   return (
     <div className="app">
-      <header className="app-header app-ui">
-        <div className="brand">
-          <span className="logo">🐾</span>
-          <div>
-            <b>AOK9 Race Secretary</b>
-            <small>
-              R.A.C.E. Sprint Racing · Rules 3.0
-              {state.info.meetId && ` · ${state.info.meetId}`}
-              {state.info.clubName && ` · ${state.info.clubName}`}
-            </small>
-          </div>
-        </div>
+      <header className="app-header">
+        <button className="brand" onClick={() => dispatch({ type: 'setPhase', phase: 'home' })}>
+          AOK9 Race Secretary
+        </button>
         <nav className="steps">
           {STEPS.map((s) => (
             <button
@@ -46,8 +48,10 @@ function Shell() {
             </button>
           ))}
         </nav>
+        <span className="save-status">{status}</span>
       </header>
       <main>
+        {phase === 'home' && <HomeScreen />}
         {phase === 'setup' && <SetupScreen />}
         {phase === 'entries' && <EntriesScreen />}
         {phase === 'divisions' && <DivisionsScreen />}
@@ -55,6 +59,7 @@ function Shell() {
         {phase === 'program2' && <ProgramScreen program={2} />}
         {phase === 'program3' && <ProgramScreen program={3} />}
         {phase === 'results' && <ResultsScreen />}
+        {phase === 'export' && <ExportScreen />}
       </main>
     </div>
   );

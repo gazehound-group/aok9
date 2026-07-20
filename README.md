@@ -20,7 +20,8 @@ npm run preview    # serves dist/ at http://localhost:4173
 
 Everything runs in the browser — no internet needed. The meet is **autosaved to the browser's
 local storage after every change**; closing the laptop or losing power does not lose the meet.
-Use *Setup → Export meet backup (.json)* for an extra on-disk backup you can restore on any machine.
+The home page shows which meet is loaded (club, meet ID, entries, programs run) with *Backup JSON /
+Restore JSON* buttons for an extra on-disk copy you can restore on any machine.
 
 ## Workflow (matches the rule book)
 

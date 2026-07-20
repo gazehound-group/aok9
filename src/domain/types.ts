@@ -117,13 +117,15 @@ export interface MeetInfo {
 }
 
 export type Phase =
+  | 'home'
   | 'setup'
   | 'entries'
   | 'divisions'
   | 'program1'
   | 'program2'
   | 'program3'
-  | 'results';
+  | 'results'
+  | 'export';
 
 export interface MeetState {
   info: MeetInfo;

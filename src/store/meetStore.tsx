@@ -25,7 +25,7 @@ export function emptyMeet(): MeetState {
       date: new Date().toISOString().slice(0, 10),
       fteThreshold: 0.75,
     },
-    phase: 'setup',
+    phase: 'home',
     entries: [],
     divisions: [],
     draws: [],
@@ -179,24 +179,32 @@ export function loadSaved(): MeetState | null {
     if (!raw) return null;
     const parsed = JSON.parse(raw) as MeetState;
     if (!parsed || !parsed.info) return null;
-    return { ...emptyMeet(), ...parsed };
+    // Always open on the home page so the secretary sees which meet is
+    // loaded before continuing.
+    return { ...emptyMeet(), ...parsed, phase: 'home' };
   } catch {
     return null;
   }
 }
 
-const Ctx = createContext<{ state: MeetState; dispatch: React.Dispatch<Action> } | null>(null);
+const Ctx = createContext<{
+  state: MeetState;
+  dispatch: React.Dispatch<Action>;
+  lastSaved: string;
+} | null>(null);
 
 export function MeetProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(reducer, undefined, () => loadSaved() ?? emptyMeet());
+  const [lastSaved, setLastSaved] = React.useState('');
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      setLastSaved(new Date().toLocaleTimeString());
     } catch {
       // storage full/unavailable: keep running, backups still possible via export
     }
   }, [state]);
-  const value = useMemo(() => ({ state, dispatch }), [state]);
+  const value = useMemo(() => ({ state, dispatch, lastSaved }), [state, lastSaved]);
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 
