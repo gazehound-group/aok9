@@ -56,15 +56,8 @@ function Shell() {
         {phase === 'program3' && <ProgramScreen program={3} />}
         {phase === 'results' && <ResultsScreen />}
       </main>
-      {(phase === 'program1' || phase === 'program2' || phase === 'program3') && null}
-      <PrintRoot />
     </div>
   );
-}
-
-/** Print-only content lives inside the screens; this styles nothing extra. */
-function PrintRoot() {
-  return null;
 }
 
 export default function App() {

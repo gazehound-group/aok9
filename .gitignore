@@ -1,3 +1,9 @@
 node_modules/
 *.local
 .DS_Store
+
+# Build artifacts
+tsconfig.tsbuildinfo
+
+# Local editor/tooling config
+.claude/

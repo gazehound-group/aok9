@@ -30,10 +30,16 @@ export function EntriesScreen() {
       .slice(0, 25);
   }, [q, guide]);
 
-  const titleBadges = (e: Entry) =>
-    [e.hasSBRC && 'SBRC', e.hasBRC && 'BRC', e.hasSMRC && 'SMRC', e.hasMRC && 'MRC']
-      .filter(Boolean)
-      .join(' ');
+  // Title status is guessed from the guide's accumulated points, which cannot
+  // always distinguish "earned 12 points" from "holds the title". A wrong value
+  // changes the eligible entry and silently redistributes championship points
+  // (5.2/5.3), so the secretary must be able to correct it.
+  const TITLES = [
+    { key: 'hasBRC', label: 'BRC' },
+    { key: 'hasSBRC', label: 'SBRC' },
+    { key: 'hasMRC', label: 'MRC' },
+    { key: 'hasSMRC', label: 'SMRC' },
+  ] as const;
 
   return (
     <div>
@@ -99,7 +105,20 @@ export function EntriesScreen() {
                       gradeForWave(e.bwave ?? e.mwave)
                     )}
                   </td>
-                  <td>{titleBadges(e)}</td>
+                  <td className="title-toggles">
+                    {TITLES.map((t) => (
+                      <button
+                        key={t.key}
+                        className={`title-chip sm ${e[t.key] ? 'on' : ''}`}
+                        title={`${e[t.key] ? 'Remove' : 'Mark as'} ${t.label} champion of record`}
+                        onClick={() =>
+                          dispatch({ type: 'updateEntry', id: e.id, patch: { [t.key]: !e[t.key] } })
+                        }
+                      >
+                        {t.label}
+                      </button>
+                    ))}
+                  </td>
                   <td>{e.owner ?? ''}</td>
                   <td className="btn-cell">
                     <button
@@ -125,6 +144,13 @@ export function EntriesScreen() {
         )}
         {state.entries.some((e) => !e.sex && !e.preScratched) && (
           <Warn>Some dogs have no sex recorded — needed for the High Score Opposite Sex award.</Warn>
+        )}
+        {state.entries.length > 0 && (
+          <Hint>
+            Titles are pre-filled from the Grading Guide point columns and may be wrong — click a
+            chip to correct it. Champion status decides the eligible entry, so it changes how BRC
+            and MRC points are shared out (5.2, 5.3).
+          </Hint>
         )}
       </Section>
 
