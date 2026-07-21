@@ -237,6 +237,24 @@ a { color: #14548a; }
 a:hover { color: #0d3a61; }
 .links { margin: 8px 0; padding-left: 22px; }
 .links li { margin: 7px 0; }
+/* Share buttons */
+.share { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.share-btn:hover { background: #f0f3f6; color: var(--ink); }
+.share-btn svg { width: 17px; height: 17px; fill: currentColor; }
+
 .disclaimer summary { cursor: pointer; color: #14548a; margin-top: 4px; }
 .disclaimer p { font-size: 14px; color: #33404f; line-height: 1.55; }
 

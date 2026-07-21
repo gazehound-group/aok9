@@ -3,6 +3,7 @@ import { useMeet } from '../store/meetStore';
 import { downloadBackup, parseBackup } from '../io/backup';
 import { Hint, Section } from './common';
 import sampleMeet from '../data/sample-meet.json';
+import { ShareLinks } from './ShareLinks';
 import type { MeetState, Phase } from '../domain/types';
 
 /** True once the secretary has entered anything worth protecting. */
@@ -162,6 +163,11 @@ export function HomeScreen() {
         <p className="muted">
           Autosaves to browser storage after every change. Fully offline once loaded.
         </p>
+      </Section>
+
+      <Section title="Share this app">
+        <p>Know a club or race secretary who could use it? Pass it on.</p>
+        <ShareLinks />
       </Section>
 
       <Section title="Official AOK9 links">
