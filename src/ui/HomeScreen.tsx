@@ -65,10 +65,10 @@ export function HomeScreen() {
             Continue
           </button>
           <button className="secondary" onClick={() => downloadBackup(state)}>
-            Backup JSON
+            Save Meet to File
           </button>
           <button className="secondary" onClick={() => restoreRef.current?.click()}>
-            Restore JSON
+            Open Meet from File
           </button>
           <button
             className="outline-danger"
@@ -81,6 +81,10 @@ export function HomeScreen() {
             Reset
           </button>
         </div>
+        <p className="muted small">
+          Saves or opens a .json file holding the whole meet — use it to move a meet between
+          laptops, or as a spare copy alongside the automatic browser save.
+        </p>
         <input
           ref={restoreRef}
           type="file"
@@ -91,7 +95,7 @@ export function HomeScreen() {
             if (!f) return;
             try {
               dispatch({ type: 'importState', state: parseBackup(await f.text()) });
-              setMsg(`Restored ${f.name}`);
+              setMsg(`Opened ${f.name}`);
             } catch (err) {
               setMsg(String(err));
             }

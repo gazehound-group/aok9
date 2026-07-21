@@ -22,12 +22,13 @@ export function ExportScreen() {
           </button>
         </div>
 
-        <p>Full state backup — restore later or share with another laptop.</p>
+        <p>Full state backup — reopen later or share with another laptop.</p>
         <div className="btn-row">
           <button className="secondary" onClick={() => downloadBackup(state)}>
-            Download meet JSON backup
+            Save Meet to File
           </button>
         </div>
+        <p className="muted small">Saves a .json file holding the whole meet.</p>
 
         <p>Paper copy of the final scoring sheet for the paddock board.</p>
         <div className="btn-row">

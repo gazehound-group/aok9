@@ -221,6 +221,7 @@ input.award.overridden { border-color: var(--warn-line); background: var(--warn-
 .howto { margin: 8px 0; padding-left: 22px; }
 .howto li { margin: 7px 0; }
 .muted { color: var(--muted); }
+.small { font-size: 13.5px; }
 
 /* Notices */
 .warn {
