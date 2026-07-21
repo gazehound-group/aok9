@@ -1,0 +1,50 @@
+name: Scoring or rule question
+description: The app scored something differently than you read the rule book
+labels: ["scoring"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when the app ran fine but produced a result you think is wrong under the rules —
+        points, placings, rotations, championship points, or who ran in which race.
+
+        A few places in Rule Book v3.0 are ambiguous and the app had to pick a reading; those are
+        listed in the README under **Rule interpretations encoded**. Worth a look first — your case
+        may be one of them, in which case it is a rules question for the NRD rather than a bug.
+
+  - type: input
+    id: build
+    attributes:
+      label: App version and build
+      description: The line at the very bottom of any page in the app.
+      placeholder: v1.0.0 (build 5bbbd4a)
+    validations:
+      required: true
+
+  - type: input
+    id: rule
+    attributes:
+      label: Rule reference
+      description: Which rule or figure applies?
+      placeholder: e.g. 4.3.4.1, Figure 8.1, 5.2
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What the app did, and what you expected
+      description: Give the dogs, points and races involved if you can — exact numbers help a lot.
+      placeholder: |
+        The app put Bandit in race 2 and Coyote in race 1, both on 3 points.
+        I expected the reverse because ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: meet-file
+    attributes:
+      label: Meet file (optional)
+      description: >
+        Attach the .json from Save Meet to File if you can. Note it contains dog and owner names
+        from your meet, and this issue is public — leave it out if that is a concern.

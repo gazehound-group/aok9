@@ -76,6 +76,16 @@ splitting, DQ redistribution, WAVE formulas, rotation tie chain, and every worke
 rule book (TRC examples 5.7 #1–2, the eligible-entry example in 5.2), plus a report-export test
 and a bundled-sample-meet test, both run against full meets captured from the real UI.
 
+## Reporting a problem
+
+Open an [issue](https://github.com/gazehound-group/aok9/issues/new/choose) — there are templates for
+a **bug** and for a **scoring or rule question**, both of which ask for the version and build shown
+at the bottom of the app, so a report can be traced to the exact code that produced it. If you do
+not have a GitHub account, email <info@gazehound.io> instead.
+
+Attaching the `.json` from *Save Meet to File* makes a problem reproducible, but note that issues are
+public and the file contains the dog and owner names from your meet.
+
 ## License
 
 MIT — see [LICENSE](LICENSE). You may use, modify and redistribute this app freely; it comes with

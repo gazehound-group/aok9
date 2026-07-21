@@ -205,6 +205,17 @@ export function HomeScreen() {
             </a>{' '}
             — github.com/gazehound-group/aok9
           </li>
+          <li>
+            <a
+              href="https://github.com/gazehound-group/aok9/issues/new/choose"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Report a problem or scoring question
+            </a>{' '}
+            — needs a GitHub account; otherwise email{' '}
+            <a href="mailto:info@gazehound.io">info@gazehound.io</a>.
+          </li>
         </ul>
       </Section>
 

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: No GitHub account? Email instead
+    url: mailto:info@gazehound.io
+    about: Race secretaries and club members can report anything by email — no account needed.
+  - name: Official AOK9 rules and forms
+    url: https://www.aok9racing.com/documents--forms.html
+    about: For questions about the rules themselves rather than this app.
