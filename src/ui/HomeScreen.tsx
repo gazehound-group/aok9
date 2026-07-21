@@ -163,6 +163,31 @@ export function HomeScreen() {
           Autosaves to browser storage after every change. Fully offline once loaded.
         </p>
       </Section>
+
+      <Section title="Official AOK9 links">
+        <ul className="links">
+          <li>
+            <a href="https://www.aok9racing.com/" target="_blank" rel="noopener noreferrer">
+              AOK9 Racing Program
+            </a>{' '}
+            — the official program website.
+          </li>
+          <li>
+            <a
+              href="https://www.aok9racing.com/documents--forms.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Documents &amp; Forms
+            </a>{' '}
+            — current rule book, entry forms and the official Grading Guide.
+          </li>
+        </ul>
+        <p className="muted small">
+          Open in a new tab and need an internet connection — the meet you have loaded is not
+          affected.
+        </p>
+      </Section>
     </div>
   );
 }

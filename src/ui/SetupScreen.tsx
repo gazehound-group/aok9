@@ -57,6 +57,17 @@ export function SetupScreen() {
           Loaded: <b>{guide.source}</b> — {guide.dogs.length} dogs. Upload a newer official guide
           to replace it (same spreadsheet layout).
         </p>
+        <p className="muted small">
+          The current guide is published on the{' '}
+          <a
+            href="https://www.aok9racing.com/documents--forms.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            AOK9 Documents &amp; Forms
+          </a>{' '}
+          page.
+        </p>
         <div className="btn-row">
           <button onClick={() => guideFileRef.current?.click()}>Upload Grading Guide (.xlsx)</button>
           <button className="secondary" onClick={resetToBundled}>

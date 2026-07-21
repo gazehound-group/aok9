@@ -4,6 +4,9 @@ Offline web app that runs an official **R.A.C.E. AOK9 Sprint Racing** meet per R
 entries → divisions → three programs of racing (draws, post positions, results) → final standings,
 championship points and the official NRD report.
 
+Official program site: <https://www.aok9racing.com/> — the rule book, entry forms and the current
+Grading Guide are on its [Documents & Forms](https://www.aok9racing.com/documents--forms.html) page.
+
 ## Running it
 
 ```
