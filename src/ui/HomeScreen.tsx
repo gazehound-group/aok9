@@ -207,6 +207,60 @@ export function HomeScreen() {
           </li>
         </ul>
       </Section>
+
+      <Section title="Disclaimer">
+        <p>
+          <b>AOK9 Race Secretary app is an independent community tool.</b> It is not authorized,
+          approved, or endorsed by AOK9 Racing, and the official AOK9 rules always govern. It
+          implements Rule Book <b>v3.0</b>.
+        </p>
+        <details className="disclaimer">
+          <summary>Read the full disclaimer</summary>
+          <p>
+            This app is an independent, free resource created and maintained by dog racing
+            enthusiasts, to give race secretaries and clubs a simple browser-based tool for
+            organizing and managing AOK9 racing events. It is <b>not</b> an official AOK9
+            publication, software product, or service. Official AOK9 rules, requirements and
+            information are at{' '}
+            <a href="https://www.aok9racing.com/" target="_blank" rel="noopener noreferrer">
+              aok9racing.com
+            </a>
+            .
+          </p>
+          <p>
+            <b>Rules version.</b> This app implements the AOK9 Sprint Racing Rule Book v3.0. If a
+            newer rule book is published, the app keeps applying v3.0 until it is updated — confirm
+            that version still matches the current official rules before scoring a meet with it.
+          </p>
+          <p>
+            <b>Where the rules required interpretation.</b> In a few places the rule book is
+            ambiguous or self-contradictory and this app had to choose a reading — most importantly
+            the race set-up chart (Figure 8.1) against the prose in 4.3.3, how championship titles
+            are inferred from the Grading Guide, and how award positions are consumed by titled
+            champions. These choices affect results and are documented in the project README.
+            Please check them against the official rules and your NRD's guidance.
+          </p>
+          <p>
+            <b>Verify before you file.</b> You are responsible for verifying all event information,
+            entries, results and championship records against the official AOK9 rules. Where
+            anything shown or generated here disagrees with official AOK9 rules, forms or
+            publications, <b>the official AOK9 materials govern</b>.
+          </p>
+          <p>
+            <b>Your data.</b> Everything you enter stays in this browser on this computer. Nothing
+            is uploaded; there is no account, server or cloud backup — which also means nobody can
+            recover a lost meet for you. Use <b>Save Meet to File</b> to keep your own copies.
+          </p>
+          <p>
+            <b>No warranty.</b> This software is provided “as is”, without warranty of any kind,
+            express or implied, under the MIT License.
+          </p>
+          <p>
+            This app is a work in progress. Feedback from race secretaries, clubs and participants
+            is welcome — <a href="mailto:info@gazehound.io">info@gazehound.io</a>.
+          </p>
+        </details>
+      </Section>
     </div>
   );
 }
