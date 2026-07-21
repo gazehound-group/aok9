@@ -2,7 +2,13 @@ import React, { useRef, useState } from 'react';
 import { useMeet } from '../store/meetStore';
 import { downloadBackup, parseBackup } from '../io/backup';
 import { Hint, Section } from './common';
+import sampleMeet from '../data/sample-meet.json';
 import type { MeetState, Phase } from '../domain/types';
+
+/** True once the secretary has entered anything worth protecting. */
+function hasWork(state: MeetState): boolean {
+  return state.entries.length > 0 || !!state.info.clubName || !!state.info.meetId;
+}
 
 /** How many of the three programs are fully finished. */
 export function programsRun(state: MeetState): number {
@@ -93,6 +99,33 @@ export function HomeScreen() {
           }}
         />
         {msg && <Hint>{msg}</Hint>}
+      </Section>
+
+      <Section title="Try it out">
+        <p>
+          Loads a complete finished meet — 4 divisions, 19 dogs, all three programs run, including
+          a scratch, a DQ, off-course and did-not-finish results — so you can explore the draws,
+          rotations, results and export without entering anything.
+        </p>
+        <div className="btn-row">
+          <button
+            className="secondary"
+            onClick={() => {
+              if (
+                hasWork(state) &&
+                !confirm(
+                  'Load the sample meet? This replaces the meet currently loaded — back it up first if you need it.'
+                )
+              ) {
+                return;
+              }
+              dispatch({ type: 'importState', state: sampleMeet as unknown as MeetState });
+              setMsg('Loaded sample meet — use Reset when you want to start your own.');
+            }}
+          >
+            Load sample meet
+          </button>
+        </div>
       </Section>
 
       <Section title="How it works">

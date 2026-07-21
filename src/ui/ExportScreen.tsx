@@ -12,21 +12,33 @@ export function ExportScreen() {
   return (
     <div>
       <Section title="Export">
+        <p>
+          Generates an xlsx matching the official AOK9 Race Meet Report Template (Summary + Race
+          by Race Results sheets).
+        </p>
         <div className="btn-row">
-          <button className="big" onClick={() => downloadReport(state)}>
-            Export NRD report (.xlsx)
+          <button onClick={() => downloadReport(state)}>
+            Download AOK9 Race Meet Report (.xlsx)
           </button>
+        </div>
+
+        <p>Full state backup — restore later or share with another laptop.</p>
+        <div className="btn-row">
+          <button className="secondary" onClick={() => downloadBackup(state)}>
+            Download meet JSON backup
+          </button>
+        </div>
+
+        <p>Paper copy of the final scoring sheet for the paddock board.</p>
+        <div className="btn-row">
           <button className="secondary" onClick={() => window.print()}>
             Print scoring sheet
           </button>
-          <button className="secondary" onClick={() => downloadBackup(state)}>
-            Export meet backup (.json)
-          </button>
         </div>
+
         <Hint>
-          The xlsx follows the official “AOK9 Race Meet Report Template” (Summary + race-by-race
-          sheets, plus an unofficial WAVE projection sheet). Email it to the NRD within 48 hours of
-          the meet (2.2). Championship point edits made on the Results page are included.
+          Email the report to the NRD within 48 hours of the meet (2.2). Championship point edits
+          made on the Results page are included.
         </Hint>
       </Section>
 
