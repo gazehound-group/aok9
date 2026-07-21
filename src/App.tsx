@@ -61,6 +61,10 @@ function Shell() {
         {phase === 'results' && <ResultsScreen />}
         {phase === 'export' && <ExportScreen />}
       </main>
+      <footer className="app-footer">
+        v{__APP_VERSION__} (build {__BUILD_SHA__}) · Questions or a suspected error:{' '}
+        <a href="mailto:info@gazehound.io">info@gazehound.io</a>
+      </footer>
     </div>
   );
 }

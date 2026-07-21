@@ -206,6 +206,17 @@ input.award.overridden { border-color: var(--warn-line); background: var(--warn-
 .explain { font-size: 13.5px; color: var(--muted); }
 .flags { color: var(--danger); font-size: 12.5px; }
 
+/* Footer */
+.app-footer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px 18px 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
 /* Landing page */
 .landing { max-width: 1000px; margin: 0 auto; }
 .landing h1 { font-size: 34px; margin: 22px 0 4px; }
@@ -241,7 +252,7 @@ a:hover { color: #0d3a61; }
 /* Print */
 .print-only { display: none; }
 @media print {
-  .app-ui, .app-header, .section, .sticky-actions, .warn, .hint { display: none !important; }
+  .app-ui, .app-header, .app-footer, .section, .sticky-actions, .warn, .hint { display: none !important; }
   .print-only { display: block; font-size: 12px; }
   .print-only h1 { font-size: 16px; margin: 0 0 4px; }
   .print-only h2 { font-size: 14px; margin: 0 0 10px; }
