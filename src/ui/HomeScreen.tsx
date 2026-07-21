@@ -188,6 +188,25 @@ export function HomeScreen() {
           affected.
         </p>
       </Section>
+
+      <Section title="Developers &amp; advanced users">
+        <p>
+          The source code is on GitHub. Go there to run the app on your own machine, review how
+          the rules are implemented, or report a problem.
+        </p>
+        <ul className="links">
+          <li>
+            <a
+              href="https://github.com/gazehound-group/aok9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub repository
+            </a>{' '}
+            — github.com/gazehound-group/aok9
+          </li>
+        </ul>
+      </Section>
     </div>
   );
 }
